@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love-Themed Envelope Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffe5e5; /* Soft pink background */
+      overflow: hidden; /* Hide overflow to avoid scrollbars */
+      position: relative; /* Position relative for absolute positioning of hearts */
+    }
+
+    .envelope {
+      width: 320px;
+      height: 240px;
+      position: relative;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff8fa3, #ff758c); /* Gradient pink envelope */
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .envelope .heart {
+      position: absolute;
+      top: -20px;
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      background-color: #ff3d68;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .envelope .heart:before,
+    .envelope .heart:after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff3d68;
+      border-radius: 50%;
+    }
+
+    .envelope .heart:before {
+      top: -15px;
+      left: 0;
+    }
+
+    .envelope .heart:after {
+      left: 15px;
+      top: 0;
+    }
+
+    .envelope .top-flap, .envelope .bottom-flap {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      background-color: #fff; /* White flap for contrast */
+      border: 2px solid #ff758c;
+      transition: 0.6s;
+    }
+
+    .envelope .top-flap {
+      top: 0;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background-color: #ff758c;
+    }
+
+    .envelope .bottom-flap {
+      bottom: 0;
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    }
+
+    .envelope.open .top-flap {
+      transform: rotateX(180deg);
+    }
+
+    .letter {
+      width: 100%;
+      max-height: 200px; /* Adjust this value as needed */
+      padding: 20px;
+      background-color: white;
+      border: 2px solid #ff758c;
+      text-align: center;
+      font-size: 16px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      overflow: auto; /* Enable scrolling if content is too large */
+      border-radius: 10px;
+    }
+
+    .envelope.open .letter {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .letter p {
+      color: #ff3d68;
+      margin-bottom: 15px;
+    }
+
+    .letter img {
+      max-width: 100px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .letter.auto-expand {
+      height: auto;
+    }
+
+    /* Floating hearts animation */
+    .floating-heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff3d68;
+      opacity: 0.8;
+      pointer-events: none;
+      transform: rotate(-45deg);
+      animation: float 15s infinite;
+    }
+
+    .floating-heart:before,
+    .floating-heart:after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #ff3d68;
+    }
+
+    .floating-heart:before {
+      top: -15px;
+      left: 0;
+    }
+
+    .floating-heart:after {
+      top: 0;
+      left: 15px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(-45deg);
+      }
+      25% {
+        transform: translate(-50px, -100px) rotate(-45deg);
+      }
+      50% {
+        transform: translate(0, -200px) rotate(-45deg);
+      }
+      75% {
+        transform: translate(50px, -100px) rotate(-45deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(-45deg);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="envelope" onclick="openEnvelope()">
+    <div class="heart"></div>
+    <div class="top-flap"></div>
+    <div class="bottom-flap"></div>
+    <div class="letter auto-expand">
+      <p>To my love,</p>
+      <p>
+        
+        You make my heart feel so full every day. I'm so lucky to have you in my life.
+        I cherish every moment we're together, and I can’t wait to see what the future holds for u
+        You make my heart feel so full every day. I'm so lucky to have you in my life.
+        I cherish every moment we're together, and I can’t wait to see what the future holds for u
+        You make my heart feel so full every day. I'm so lucky to have you in my life.
+        I cherish every moment we're together, and I can’t wait to see what the future holds for u
+        You make my heart feel so full every day. I'm so lucky to have you in my life.
+        I cherish every moment we're together, and I can’t wait to see what the future holds for u
+        You make my heart feel so full every day. I'm so lucky to have you in my life.
+        I cherish every moment we're together, and I can’t wait to see what the future holds for uYou make my heart feel so full every day. I'm so lucky to have you in my life.
+        I cherish every moment we're together, and I can’t wait to see what the future holds for us. ❤️
+      </p>
+      <img src="c:\Users\Admin\Downloads\att.94KDlkjljd26eLowuDk4dSEBTcUOJRus31X0thj7cpY.jpg" alt="Picture of us">
+    </div>
+  </div>
+
+  <!-- Floating hearts -->
+  <div class="floating-heart" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+  <div class="floating-heart" style="top: 20%; left: 40%; animation-delay: 2s;"></div>
+  <div class="floating-heart" style="top: 30%; left: 70%; animation-delay: 4s;"></div>
+  <div class="floating-heart" style="top: 50%; left: 20%; animation-delay: 6s;"></div>
+  <div class="floating-heart" style="top: 60%; left: 50%; animation-delay: 8s;"></div>
+  <div class="floating-heart" style="top: 70%; left: 80%; animation-delay: 10s;"></div>
+  <div class="floating-heart" style="top: 80%; left: 30%; animation-delay: 12s;"></div>
+  <div class="floating-heart" style="top: 90%; left: 60%; animation-delay: 14s;"></div> 
+  <div class="floating-heart" style="top: 70%; left: 80%; animation-delay: 10s;"></div>
+  <div class="floating-heart" style="top: 80%; left: 30%; animation-delay: 12s;"></div>
+  <div class="floating-heart" style="top: 90%; left: 60%; animation-delay: 14s;"></div>
+  <div class="floating-heart" style="top: 30%; left: 70%; animation-delay: 4s;"></div>
+  <div class="floating-heart" style="top: 50%; left: 20%; animation-delay: 6s;"></div>
+  <div class="floating-heart" style="top: 60%; left: 50%; animation-delay: 8s;"></div>
+  <div class="floating-heart" style="top: 70%; left: 80%; animation-delay: 10s;"></div>
+  <div class="floating-heart" style="top: 80%; left: 30%; animation-delay: 12s;"></div>
+  <div class="floating-heart" style="top: 90%; left: 60%; animation-delay: 14s;"></div> 
+  <div class="floating-heart" style="top: 70%; left: 80%; animation-delay: 10s;"></div>
+  <div class="floating-heart" style="top: 80%; left: 30%; animation-delay: 12s;"></div>
+  <div class="floating-heart" style="top: 90%; left: 60%; animation-delay: 14s;"></div>
+
+  <!-- Audio Element -->
+  <audio id="loveAudio" src="C:\Users\Admin\Downloads\ep.4 IF ITS NOT YOU.mp3"></audio>
+
+  <script>
+    function openEnvelope() {
+      document.querySelector('.envelope').classList.toggle('open');
+      var audio = document.getElementById('loveAudio');
+      if (audio) {
+        audio.play().catch(error => {
+          console.error("Error playing audio:", error);
+        });
+      } else {
+        console.error("Audio element not found");
+      }
+    }
+  </script>
+
+</body>
+</html>
